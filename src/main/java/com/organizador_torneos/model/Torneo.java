@@ -1,13 +1,26 @@
 package com.organizador_torneos.model;
 
+import antlr.collections.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Stack;
 
+@Entity
+@Table(name = "Torneo")
 public class Torneo {
+    @Id
+    @Column(name = "torneo_id")
+    private int id;
+
+    @Column(name = "torneo_fecha")
     private LocalDateTime fecha;
+
+    @Column(name = "torneo_categoria")
     private String categoria;
     private List<Pareja> participantes = new ArrayList<>();
     private List<Grupo> grupos = new ArrayList<>();
@@ -17,6 +30,7 @@ public class Torneo {
         this.fecha = fecha;
         this.categoria = categoria;
     }
+
 
     public LocalDateTime getFecha(){
         return this.fecha;
